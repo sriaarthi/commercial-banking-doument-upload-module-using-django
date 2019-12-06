@@ -102,5 +102,3 @@ $python manage.py createsuperuser
 
 If not sure about any commands, go for help command :
 $python manage.py help
-
-
