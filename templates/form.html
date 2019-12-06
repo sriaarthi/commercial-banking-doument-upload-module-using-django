@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{heading}}</h1>
+<h2>{{title}}</h2>
+
+<form action="upload" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="files[]" multiple>
+    <input type="submit" value="Submit" name="submit">
+</form>
+
+{% endblock %}
