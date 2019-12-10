@@ -134,3 +134,10 @@ $python manage.py help
  - Framework: python3.8.0,
  - Editor: VScode
  - Database: microsoft visual c++ 2015-2019 redistributable (x86) 14.24.28127,postgresql, pgadmin, psycopg2(It's a postgres database adapter which connects with python).
+ 
+## REFERENCE
+
+ - Backend Setup : https://djangoforbeginners.com/initial-setup/
+ - Jinja Template Designer : https://jinja.palletsprojects.com/en/2.10.x/templates/
+ - Model Fields : https://docs.djangoproject.com/en/3.0/ref/models/fields/
+
