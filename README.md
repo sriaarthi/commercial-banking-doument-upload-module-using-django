@@ -1,13 +1,13 @@
-"# commercial-banking-doument-upload-module-using-django" 
+# commercial-banking-doument-upload-module-using-django
 
-Django-rest-framework-react : (ref: https://github.com/wsvincent/django-rest-framework-react-tutorial)
-
-Backend setup: (ref: https://djangoforbeginners.com/initial-setup/)
+## Backend setup: (ref: https://djangoforbeginners.com/initial-setup/)
 
 1. Dowload and install python 3
+
 Download the installer and make sure to click the Add Python to PATH option, which will let use use python directly from the command line.
 
-2. Virtual Env 
+2. Virtual Env
+
 Pipenv is similar to npm and yarn from the JavaScript/Node ecosystem: it creates a Pipfile containing software dependencies and a Pipfile.lock for ensuring deterministic builds. “Determinism” means that each and every time you download the software in a new virtual environment, you will have exactly the same configuration.
 The end result is that we will create a new virtual environment with Pipenv for each new Django Project.
 To install Pipenv we can use pip3 which HomeBrew automatically installed for us alongside Python 3.
@@ -36,69 +36,101 @@ If it throws this error ->  Error: [WinError 10013] An attempt was made to acces
 (django-_0NWdoUR) $ python manage.py runserver 127.0.0.1:7000
 Now if you visit http://127.0.0.1:7000/ you should see the Django welcome page.
 
-Version Control:
+## Database
 
-Download from https://gitforwindows.org/ & install git.
+#### ORM (Operational Relational Model)
+ - Tables
+   - Customer Table
+    - Cust_id
+    - Cust_name
+    - Cust_file
 
-Editor:
+Table === Class
 
-Download visual studio code and install it.
+Table Row === Class Object
 
-Frontend setup:
+``` CUSTOMER ```
 
-
-Softwares used:
-
- - python3.8.0,
- - Editor: VScode
- - DB: microsoft visual c++ 2015-2019 redistributable (x86) 14.24.28127,postgresql, pgadmin, psycopg2(It's a postgres database adapter which connects with python), 
-
-Database Credentials: 
-posgresSQL :
-DB name: banking
-password: 1234
-port: 5432
+Cust_id     Cust_name   Cust_file
+----------------------------------------
+cust1_id    |cust1_name |cust1_file    |
+----------------------------------------
+cust2_id    |cust2_name |cust2_file    |
+----------------------------------------
+cust3_id    |cust3_name |cust3_file    |
+----------------------------------------
 
 
-####
+class Customer:
+cust_id: int
+cust_name: str
+cust_file: file
 
-# Local Setup
+cust1 = Customer()
+cust2 = Customer()
+cust3 = Customer()
+ 
+#### postgresql & pgAdmin 
 
-Python 3 and [Pipenv](https://docs.pipenv.org/) need to already be installed. If you need more complete local dev instructions, [see here](https://djangoforbeginners.com/initial-setup/).
+- posgresSQL 
+    - Database name: banking
+    - Server password: 1234
+    - Port number: 5432
 
-## Backend
+#### psycopg2
 
-Install the `Pipenv` packages and start a new shell. Then `cd` into the `backend` directory and run the local server.
+This is the connector between the PostgreSQL database and the Python programming language.
 
-```
-$ cd backend
-$ pipenv install
-$ pipenv shell
-(backend) $ ./manage.py runserver
-```
+- How do we install this ?
+    - $pip install psycopg2
 
-You can see the API now at [http://127.0.0.1:8000/api](http://127.0.0.1:8000/api).
+#### MODELS
 
-####
+https://docs.djangoproject.com/en/3.0/ref/models/fields/
+
+We have to migrate the models to the database,
+- $python manage.py makemigrations
+- $python manage.py sqlmigrate frontend 0001
+- $python manage.py migrate
+
+#### PUSHING DATA TO THE DATABASE THROUGH DJANGO ADMIN PAGE
+
+1. Create a super user
+    - $python manage.py createsuperuser
+2. There will be admin.py file, where we will have to register the admin page with the model,
+    - admin.site.register(<Class_Name>)
+
+#### ADD AND FETCH DATA FROM DATABASE
+
+1. Next is to create the media folder for which we will have to specify the MEDIA_ROOT & MEDIA_URL in the settings.py file and append the urlpatterns in the url.py file.
+
+
+## COMMANDS
 
 $pip install psycopg2
 // This cmd installs psycopg2 through pip, which is the adapter that connects postgres database with the python code.
 
 $python manage.py makemigrations
-// This cmd will create the file 0001_initial.py in your module's(here frontend) migration folder. The file contains the create model(here customer) function().
+// This cmd will create the file 0001_initial.py in your module's(here frontend) migration folder. The file contains the create model(here customer) function(). This will just create the migration file.
 
 $python manage.py sqlmigrate frontend 0001
-// This cmd creates the table(here frontend_customer) with the SQL command itslef.
+// This cmd creates the table(here frontend_customer) with the SQL command itself.
 
 $python manage.py migrate
-// This cmd will migrate and creates the table in the postgres DB
+// This cmd will migrate and creates the table in the postgres DB.
 
 To create superuser :
 $python manage.py createsuperuser
 // This cmd will ask for the name, email and password
-// admin name: sri 
-// email: connect@sri.com
-// password: 1234
+// Admin username: sri 
+// Email address: connect@sri.com
+// Password: 1234
 
-If not sure about any commands, go for help command :
+If not sure about any commands, go for help command,
 $python manage.py help
+
+## SOFTWARES
+
+ - Framework: python3.8.0,
+ - Editor: VScode
+ - Database: microsoft visual c++ 2015-2019 redistributable (x86) 14.24.28127,postgresql, pgadmin, psycopg2(It's a postgres database adapter which connects with python).
