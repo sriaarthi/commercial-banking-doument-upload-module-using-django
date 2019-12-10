@@ -1,6 +1,6 @@
 # commercial-banking-doument-upload-module-using-django
 
-## BACKEND SETUP: (ref: https://djangoforbeginners.com/initial-setup/)
+## BACKEND SETUP: (https://djangoforbeginners.com/initial-setup/)
 
 1. Dowload and install python 3
 
