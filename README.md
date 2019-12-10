@@ -1,6 +1,6 @@
 # commercial-banking-doument-upload-module-using-django
 
-## Backend setup: (ref: https://djangoforbeginners.com/initial-setup/)
+## BACKEND SETUP: (ref: https://djangoforbeginners.com/initial-setup/)
 
 1. Dowload and install python 3
 
@@ -36,7 +36,7 @@ If it throws this error ->  Error: [WinError 10013] An attempt was made to acces
 (django-_0NWdoUR) $ python manage.py runserver 127.0.0.1:7000
 Now if you visit http://127.0.0.1:7000/ you should see the Django welcome page.
 
-## Database
+## DATABASE
 
 #### ORM (Operational Relational Model)
  - Tables
